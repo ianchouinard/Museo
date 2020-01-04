@@ -26,7 +26,7 @@ export class DataProvider extends Component {
     }
 
     getConfig = () => {
-        return fetch('/library-src/library-config.json')
+        return fetch('/library-config.json')
             .then((response) => {
                 return response.json()
             }).then((json) => {
@@ -71,7 +71,7 @@ export class DataProvider extends Component {
         if (window.location.href.indexOf("component-render") !== -1) {
             this.state.jsPaths.forEach((js) => {
                 const jscript = document.createElement('script');
-                jscript.setAttribute('src',`/library-src/${js}`);
+                jscript.setAttribute('src',`${js}`);
                 document.head.appendChild(jscript);
             });
         }

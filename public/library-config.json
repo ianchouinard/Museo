@@ -1,7 +1,7 @@
 {
     "projectName": "Museo Demo",
-    "css": ["library.css"],
-    "js": ["jquery.js", "bootstrap.bundle.min.js"],
+    "css": ["/library.css"],
+    "js": ["/jquery.js", "/bootstrap.bundle.min.js"],
     "components": [
         {
             "name": "Bootstrap Card",

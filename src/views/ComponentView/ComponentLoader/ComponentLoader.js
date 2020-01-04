@@ -10,7 +10,7 @@ const ComponentLoader = ({classes, ctx}) => {
     useEffect(() => {
         let mounted = true;
 
-        fetch(`/library-src/${componentName}.html`)
+        fetch(`/${componentName}.html`)
             .then(res => {
                 return res.text();
             })
@@ -34,7 +34,7 @@ const ComponentLoader = ({classes, ctx}) => {
             {(ctx.state.ready) && (
                 <React.Fragment>
                     {ctx.state.cssPaths.map((path, index) => (
-                        <link key={index} rel="stylesheet" type="text/css" href={`/library-src/${path}`} />
+                        <link key={index} rel="stylesheet" type="text/css" href={`${path}`} />
                     ))}
                     
                     <div dangerouslySetInnerHTML={{ __html: componentHtml }}></div>

@@ -13,7 +13,7 @@ const ComponentControls = ({classes, componentName, stacked, onOrientationChange
     useEffect(() => {
         let mounted = true;
 
-        fetch(`/library-src/${componentName}.html`)
+        fetch(`/${componentName}.html`)
             .then(res => {
                 return res.text();
             })

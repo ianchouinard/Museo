@@ -10,7 +10,7 @@ Museo Demo
 
 
 ## Usage
-The contents of the "/build" directory can be hosted on a server, or run locally, etc. All html, css, and js files to be showcased by Museo should be placed in the "library-src" folder. Update the "library-config.json" file as needed. Museo will automatically pull all of the html components and static assets listed in the library-config file at runtime. For convienence, a small sample project is already configred. More documentation to come.
+The contents of the "/build" directory can be hosted on a server, or run locally, etc. All html, css, and js files to be showcased by Museo should be placed in the "/public" folder. Update the "library-config.json" file as needed. Museo will automatically pull all of the html components and static assets listed in the library-config file at runtime. For convienence, a small sample project is already configred. More documentation to come.
 
 ## Development
 The Museo app is a ReactJS application created via Create React App. "npm run start" to start the dev server. "npm run build" to build for production. Refer to Create React App for more info.
