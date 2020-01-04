@@ -13,7 +13,7 @@ const styles = {
         color: '#333'
     },
     appName: {
-        paddingLeft: '20px',
+        paddingLeft: '10px',
         fontWeight: '700',
         color: '#282828',
         textDecoration: 'none',
@@ -27,7 +27,13 @@ const styles = {
         marginLeft: '10px'
     },
     meta: {
-        display: 'flex'
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '20px',
+        '& img': {
+            maxWidth: '125px',
+            maxHeight: '45px'
+        }
     }
 };
 
