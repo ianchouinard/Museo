@@ -1,0 +1,32 @@
+{
+    "projectName": "Museo Demo",
+    "css": ["library.css"],
+    "js": ["jquery.js", "bootstrap.bundle.min.js"],
+    "components": [
+        {
+            "name": "Bootstrap Card",
+            "html": "test-component-1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed fermentum tellus, vel rutrum turpis. Proin imperdiet, risus non viverra convallis, risus ligula efficitur lorem, sollicitudin tristique eros turpis at erat. Vivamus sodales condimentum diam."
+        },
+        {
+            "name": "Bootstrap Alerts",
+            "html": "bootstrap-alert",
+            "description": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
+        },
+        {
+            "name": "Bootstrap Breadcrumb",
+            "html": "bootstrap-breadcrumb",
+            "description": "Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS."
+        },
+        {
+            "name": "Bootstrap Form",
+            "html": "bootstrap-form",
+            "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms."
+        },
+        {
+            "name": "Bootstrap Carousel",
+            "html": "bootstrap-carousel",
+            "description": "A slideshow component for cycling through elements—images or slides of text—like a carousel."
+        }
+    ]
+}
