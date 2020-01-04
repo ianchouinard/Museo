@@ -10,6 +10,7 @@ export class DataProvider extends Component {
             components: [],
             currentComponent: {},
             projectName: '',
+            projectLogo: null,
             cssPaths: [],
             jsPaths: [],
             ready: false
@@ -36,6 +37,7 @@ export class DataProvider extends Component {
                 this.setState({
                     components: json.components,
                     projectName: json.projectName,
+                    projectLogo: json.projectLogo,
                     cssPaths: json.css || [],
                     jsPaths: json.js || []
                 }, () => {

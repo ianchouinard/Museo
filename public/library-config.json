@@ -1,5 +1,6 @@
 {
     "projectName": "Museo Demo",
+    "projectLogo": "/logo.png",
     "css": ["/library.css"],
     "js": ["/jquery.js", "/bootstrap.bundle.min.js"],
     "components": [

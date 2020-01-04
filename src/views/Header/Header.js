@@ -13,6 +13,9 @@ const Header = ({classes, component, history}) => {
                 {context => (
                     <header className={classes.header}>
                         <div className={classes.meta}>
+                            {Boolean(context.state.projectLogo) && (
+                                <img src={context.state.projectLogo} alt="Project Logo" />
+                            )}
                             <Link to="/" className={classes.appName} title="home">
                                 { context.state.projectName }
                             </Link>
