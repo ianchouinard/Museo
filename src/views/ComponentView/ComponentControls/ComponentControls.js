@@ -6,9 +6,12 @@ import ResizeHorizontal from 'mdi-react/ArrowCollapseHorizontalIcon';
 import ResizeVertical from 'mdi-react/ArrowCollapseVerticalIcon';
 import CollapseRight from 'mdi-react/ArrowCompressRightIcon';
 import CollapseDown from 'mdi-react/ArrowCollapseDownIcon';
+import BorderNone from 'mdi-react/BorderNoneIcon';
+import { highlightElements } from './HighlightElements';
 
 const ComponentControls = ({classes, componentName, stacked, onOrientationChange, component}) => {
     const [ componentHtml, setComponentHtml ] = useState('');
+    const [ highlightActive, setHighlightActive ] = useState(true);
 
     useEffect(() => {
         let mounted = true;
@@ -28,6 +31,16 @@ const ComponentControls = ({classes, componentName, stacked, onOrientationChange
             mounted = false;
         };  
     }, [componentName]);
+
+    useEffect(() => {
+        highlightElements(highlightActive);
+    }, [componentHtml, highlightActive]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            highlightElements(highlightActive);
+        }, 1000);
+    }, [stacked]);
 
     return (
         <div className={classes.componentControls}>
@@ -64,8 +77,16 @@ const ComponentControls = ({classes, componentName, stacked, onOrientationChange
                         </div>
                     )}
 
-                    <div className={classes.markup + (stacked ? ' stacked' : '')}>
-                        <Highlight language="html">
+                    <div
+                        className={classes.toggleHighlight + (highlightActive ? ' active' : '') + (stacked ? ' stacked' : '')}
+                        tabIndex="0"
+                        role="button"
+                        title={highlightActive ? 'Disable element highlighting' : 'Enable element highlighting'}
+                        onClick={() => {setHighlightActive(highlightActive ? false : true)}}>
+                        <BorderNone size={16} />
+                    </div>
+                    <div className={classes.markup + (stacked ? ' stacked' : '')} id="comp-code">
+                        <Highlight language="html" key={`stay-${Date.now()}`}>
                             { componentHtml }
                         </Highlight>
                     </div>

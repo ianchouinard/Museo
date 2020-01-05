@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import injectSheet from 'react-jss';
 import styles from './ComponentLoader.styles';
+import { parseHighlight } from './ParseHighlight';
 
 const ComponentLoader = ({classes, ctx}) => {
     let { componentName } = useParams();
@@ -22,11 +23,15 @@ const ComponentLoader = ({classes, ctx}) => {
                 setComponentHtml(data);
             });
 
-            return () => {
-                mounted = false;
-            };
+        setInterval(() => {
+            parseHighlight(localStorage.getItem('highlight'));
+        }, 50);
 
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        return () => {
+            mounted = false;
+        };
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -36,8 +41,7 @@ const ComponentLoader = ({classes, ctx}) => {
                     {ctx.state.cssPaths.map((path, index) => (
                         <link key={index} rel="stylesheet" type="text/css" href={`${path}`} />
                     ))}
-                    
-                    <div dangerouslySetInnerHTML={{ __html: componentHtml }}></div>
+                    <div id="component" dangerouslySetInnerHTML={{ __html: componentHtml }}></div>
                 </React.Fragment>
             )}
         </div>
