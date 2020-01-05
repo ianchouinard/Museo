@@ -46,6 +46,27 @@ const styles = {
         lineHeight: '21px',
         padding: '20px 20px 0 20px'
     },
+    toggleHighlight: {
+        float: 'right',
+        marginRight: '25px',
+        marginTop: '-3px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#fff',
+        padding: '3px',
+        borderRadius: '3px',
+        cursor: 'pointer',
+        '&.active': {
+            background: '#3F7FBF',
+            color: '#fff'
+        },
+        '&.stacked': {
+            marginTop: '25px',
+            marginRight: '5px',
+            height: '20px'
+        }
+    },
     markup: {
         marginTop: '30px',
         width: 'calc(100% - 45px)',

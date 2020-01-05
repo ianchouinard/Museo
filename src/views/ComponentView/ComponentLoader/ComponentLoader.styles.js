@@ -14,6 +14,9 @@ const styles = {
         backgroundImage: 'linear-gradient(to right, #eee 1px, transparent 1px), linear-gradient(to bottom, #eee 1px, transparent 1px)',
         '& > div': {
             margin: 'auto'
+        },
+        '& ._museo_active_': {
+            outline: '2px dashed blue !important'
         }
     }
 };

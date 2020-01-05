@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ComponentControls from './ComponentControls/ComponentControls';
 import { Resizable } from 're-resizable';
 import Header from '../Header/Header';
+import { highlightElements } from './ComponentControls/HighlightElements';
 
 const ComponentViewLayout = ({classes, ctx, history}) => {
     const [ renderSize, setRenderSize ] = useState(0);
@@ -26,6 +27,7 @@ const ComponentViewLayout = ({classes, ctx, history}) => {
     const onControlsResize = () => {
         const renderViewport = document.querySelector(`.${classes.render}`);
         setRenderSize(renderViewport.offsetWidth);
+        highlightElements(true);
     };
 
     const onOrientationChange = (type) => {
@@ -43,7 +45,7 @@ const ComponentViewLayout = ({classes, ctx, history}) => {
             <div className={classes.componentViewLayout + (isStacked ? ' stacked' : '')}>
                 <div className={classes.render}>
                     <div className={classes.renderInner}>
-                        <iframe src={`/component-render/${componentName}`} title="Component View"></iframe>
+                        <iframe id="comp-frame" src={`/component-render/${componentName}`} title="Component View"></iframe>
                     </div>
 
                     <div className={classes.renderSize}>
