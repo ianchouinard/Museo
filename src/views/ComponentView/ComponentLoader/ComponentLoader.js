@@ -7,6 +7,7 @@ import { parseHighlight } from './ParseHighlight';
 const ComponentLoader = ({classes, ctx}) => {
     let { componentName } = useParams();
     const [ componentHtml, setComponentHtml ] = useState('');
+    const [ component, setComponent ] = useState({});
 
     useEffect(() => {
         let mounted = true;
@@ -34,8 +35,12 @@ const ComponentLoader = ({classes, ctx}) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        setComponent(ctx.getComponent(componentName));
+    }, [ctx.components]);
+
     return (
-        <div className={classes.componentLoader}>
+        <div className={classes.componentLoader} style={{background: component.frameBackground}}>
             {(ctx.state.ready) && (
                 <React.Fragment>
                     {ctx.state.cssPaths.map((path, index) => (
