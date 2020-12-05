@@ -19,6 +19,11 @@ const ComponentNav = ({classes, ctx, component, history}) => {
         history.push(`/component/${newComp.html}`);
     };
 
+    const goToComponent = (index) => {
+        const newComp = ctx.state.components[index];
+        history.push(`/component/${newComp.html}`);
+    };
+
     return (
         <React.Fragment>
             {Boolean(component) && (ctx.state.components.length > 0) && (
@@ -26,7 +31,22 @@ const ComponentNav = ({classes, ctx, component, history}) => {
                     <span tabIndex="0" role="button" title="Previous component" className={classes.control} onClick={() => {changeComponent('prev')}}>
                         <ArrowLeftBoldBox />
                     </span>
-                    <span className={classes.name}>{ component.name }</span>
+                    <div className={classes.name}>
+                        { component.name }
+
+                        <ul className={classes.compList}>
+                            {ctx.state.components.map((comp, index) => (
+                                <li
+                                    key={comp.name + index}
+                                    className={component.name == comp.name ? 'active' : ''}
+                                    tabIndex={0}
+                                    role="button"
+                                    onClick={() => {goToComponent(index)}}>
+                                    { comp.name }
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     <span tabIndex="0" role="button" title="Next component" className={classes.control} onClick={() => {changeComponent('next')}}>
                         <ArrowRightBoldBox />
                     </span>
