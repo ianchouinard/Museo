@@ -37,11 +37,21 @@ const Home = ({classes, ctx}) => {
                     </div>
                 </div>
 
-                {components.map((comp, index) => (
-                    <Link to={`/component/${comp.html}`} title={`Go to ${comp.name}`} key={index}>
-                        { comp.name }
-                    </Link>
-                ))}
+                <div className={classes.compList}>
+                    {components.map((comp, index) => (
+                        <Link to={`/component/${comp.html}`} title={`Go to ${comp.name}`} key={comp.name + index}>
+                            <React.Fragment>
+                                <div className={classes.previewWrapper}>
+                                    <iframe src={`/component-render/${comp.html}`} title="Component View"></iframe>
+                                </div>
+                                
+                                <span className={classes.compName}>
+                                    { comp.name }
+                                </span>
+                            </React.Fragment>
+                        </Link>
+                    ))}
+                </div>
 
                 {((components.length <= 0) && (components.length !== ctx.state.components.length)) && (
                     <div>
